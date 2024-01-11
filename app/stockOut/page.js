@@ -19,14 +19,14 @@ const StockOutwardForm = () => {
     const handleAddItems = async () => {
         try {
             // Make an API call to add items to stock outward entries
-            await axios.post('https://back-jj8x.onrender.com/api/stockOut/stockOut/addItems', {
+            await axios.post('https://pramod.onrender.com/api/stockOut/stockOut/addItems', {
                 waiterName,
                 productName,
                 stockQty,
             });
 
             // Make an API call to update available quantity
-            await axios.post('https://back-jj8x.onrender.com/api/item/items/updateQuantity', {
+            await axios.post('https://pramod.onrender.com/api/item/items/updateQuantity', {
                 productName,
                 stockQty,
             });
@@ -51,11 +51,11 @@ const StockOutwardForm = () => {
         try {
             if (name === 'waiterName') {
                 setWaiterName(value);
-                const response = await axios.get(`https://back-jj8x.onrender.com/api/waiter/waiter/mobile?name=${value}`);
+                const response = await axios.get(`https://pramod.onrender.com/api/waiter/waiter/mobile?name=${value}`);
                 setMobileNumber(response.data.mobileNumber);
             } else if (name === 'productName') {
                 setProductName(value);
-                const response = await axios.get(`https://back-jj8x.onrender.com/api/item/items/quantity?productName=${value}`);
+                const response = await axios.get(`https://pramod.onrender.com/api/item/items/quantity?productName=${value}`);
                 setAvailableQuantity(response.data.availableQuantity);
                 setUnit(response.data.unit); // Set unit
             } else if (name === 'stockQty') {
@@ -68,7 +68,7 @@ const StockOutwardForm = () => {
 
     const fetchProductNames = async () => {
         try {
-            const response = await axios.get('https://back-jj8x.onrender.com/api/item/items');
+            const response = await axios.get('https://pramod.onrender.com/api/item/items');
             setProductNames(response.data);
         } catch (error) {
             console.error('Error fetching product names:', error.response ? error.response.data : error.message);
@@ -84,7 +84,7 @@ const StockOutwardForm = () => {
 
     const fetchStockOutwardList = async () => {
         try {
-            const response = await axios.get('https://back-jj8x.onrender.com/api/stockOut/stockOut');
+            const response = await axios.get('https://pramod.onrender.com/api/stockOut/stockOut');
             setStockOutwardList(response.data);
         } catch (error) {
             console.error('Error fetching stock outward list:', error.response ? error.response.data : error.message);
@@ -93,7 +93,7 @@ const StockOutwardForm = () => {
 
     const fetchWaitersList = async () => {
         try {
-            const response = await axios.get('https://back-jj8x.onrender.com/api/waiter');
+            const response = await axios.get('https://pramod.onrender.com/api/waiter');
             setWaitersList(response.data);
         } catch (error) {
             console.error('Error fetching waiters list:', error.response ? error.response.data : error.message);

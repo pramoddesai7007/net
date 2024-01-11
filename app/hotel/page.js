@@ -48,7 +48,7 @@ const CreateHotelForm = () => {
       });
 
       const response = await axios.post(
-        "https://back-jj8x.onrender.com/api/hotel/create",
+        "https://pramod.onrender.com/api/hotel/create",
         formDataForUpload
       );
       console.log("Hotel created successfully:", response.data);

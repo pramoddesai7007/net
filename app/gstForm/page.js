@@ -16,7 +16,7 @@ const GSTForm = () => {
 
   const fetchGSTList = async () => {
     try {
-      const response = await axios.get('https://back-jj8x.onrender.com/api/gst/list');
+      const response = await axios.get('https://pramod.onrender.com/api/gst/list');
       setGSTList(response.data || []);
     } catch (error) {
       console.error('Error fetching GST list:', error.message);
@@ -31,7 +31,7 @@ const GSTForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post('https://back-jj8x.onrender.com/api/gst/create', { gstPercentage });
+      await axios.post('https://pramod.onrender.com/api/gst/create', { gstPercentage });
       fetchGSTList();
       setGSTPercentage('');
     } catch (error) {
@@ -47,7 +47,7 @@ const GSTForm = () => {
 
   const handleDeleteClick = async (gstId) => {
     try {
-      await axios.delete(`https://back-jj8x.onrender.com/api/gst/gst/${gstId}`);
+      await axios.delete(`https://pramod.onrender.com/api/gst/gst/${gstId}`);
       fetchGSTList();
     } catch (error) {
       console.error('Error deleting GST information:', error.message);

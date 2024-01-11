@@ -16,10 +16,10 @@ const Reports = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://back-jj8x.onrender.com/api/order/orders');
+      const response = await axios.get('https://pramod.onrender.com/api/order/orders');
       const ordersWithTableNames = await Promise.all(
         response.data.map(async (order) => {
-          const tableResponse = await axios.get(`https://back-jj8x.onrender.com/api/table/tables/${order.tableId}`);
+          const tableResponse = await axios.get(`https://pramod.onrender.com/api/table/tables/${order.tableId}`);
           return {
             ...order,
             tableName: tableResponse.data.tableName || 'Unknown Table',

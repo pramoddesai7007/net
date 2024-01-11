@@ -14,7 +14,7 @@ const UnitList = () => {
   useEffect(() => {
     const fetchUnits = async () => {
       try {
-        const response = await axios.get('https://back-jj8x.onrender.com/api/unit/units');
+        const response = await axios.get('https://pramod.onrender.com/api/unit/units');
         setUnits(response.data);
       } catch (error) {
         console.error('Error fetching units:', error);
@@ -41,7 +41,7 @@ const UnitList = () => {
   
     try {
       // Make an API request using Axios to update the unit
-      await axios.patch(`https://back-jj8x.onrender.com/api/unit/units/${selectedUnit._id}`, {
+      await axios.patch(`https://pramod.onrender.com/api/unit/units/${selectedUnit._id}`, {
         unit: updatedUnit.unit, // Use 'unit' instead of 'updatedUnit.units'
       });
   
@@ -58,7 +58,7 @@ const UnitList = () => {
 
   const handleDeleteSubmit = async () => {
     try {
-      await axios.delete(`https://back-jj8x.onrender.com/api/unit/units/${selectedUnit._id}`);
+      await axios.delete(`https://pramod.onrender.com/api/unit/units/${selectedUnit._id}`);
       // Remove the deleted unit from the local state
       setUnits((prevUnits) => prevUnits.filter((unit) => unit._id !== selectedUnit._id));
     } catch (error) {
@@ -73,10 +73,10 @@ const UnitList = () => {
 
     try {
       // Make an API request using Axios to post the new unit
-      await axios.post('https://back-jj8x.onrender.com/api/unit/units', { unit: newUnit });
+      await axios.post('https://pramod.onrender.com/api/unit/units', { unit: newUnit });
 
       // Fetch the updated list of units
-      const response = await axios.get('https://back-jj8x.onrender.com/api/unit/units');
+      const response = await axios.get('https://pramod.onrender.com/api/unit/units');
       setUnits(response.data);
 
       // Reset the new unit input field

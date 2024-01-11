@@ -49,7 +49,7 @@ const PaymentModal = ({ onClose, tableName, totalAmount, tableId }) => {
   useEffect(() => {
     const fetchLatestOrderNumber = async () => {
       try {
-        const response = await axios.get('https://back-jj8x.onrender.com/api/payment/latestOrderNumber');
+        const response = await axios.get('https://pramod.onrender.com/api/payment/latestOrderNumber');
         const latestOrderNumber = response.data.latestOrderNumber;
         setOrderNumber(`${latestOrderNumber}`);
       } catch (error) {
@@ -72,7 +72,7 @@ const PaymentModal = ({ onClose, tableName, totalAmount, tableId }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://back-jj8x.onrender.com/api/payment/payments', {
+      const response = await axios.post('https://pramod.onrender.com/api/payment/payments', {
         ...formData,
         orderNumber,
         tableId,

@@ -23,7 +23,7 @@ const GroupMenu = () => {
   const fetchAllMenus = async () => {
     try {
       const response = await axios.get(
-        "https://back-jj8x.onrender.com/api/menu/menus/list"
+        "https://pramod.onrender.com/api/menu/menus/list"
       );
       setMenus(response.data);
     } catch (error) {
@@ -64,7 +64,7 @@ const GroupMenu = () => {
       setLoading(true);
 
       const response = await axios.post(
-        `https://back-jj8x.onrender.com/api/menu/${selectedMainCategory}/assignmenus`,
+        `https://pramod.onrender.com/api/menu/${selectedMainCategory}/assignmenus`,
         {
           menuIds: selectedAddMenus,
         }
@@ -88,7 +88,7 @@ const GroupMenu = () => {
   //     setLoading(true);
 
   //     const response = await axios.post(
-  //       `https://back-jj8x.onrender.com/api/menu/${selectedMainCategory}/assignmenus`,
+  //       `https://pramod.onrender.com/api/menu/${selectedMainCategory}/assignmenus`,
   //       {
   //         menuIds: selectedAddMenus,
   //       }
@@ -114,7 +114,7 @@ const GroupMenu = () => {
         setLoading(true);
 
         const mainCategoriesResponse = await axios.get(
-          "https://back-jj8x.onrender.com/api/main"
+          "https://pramod.onrender.com/api/main"
         );
         setMainCategories(mainCategoriesResponse.data);
 
@@ -132,7 +132,7 @@ const GroupMenu = () => {
   const fetchMenusForCategory = async () => {
     try {
       const response = await axios.get(
-        `https://back-jj8x.onrender.com/api/main/${selectedMainCategory}`
+        `https://pramod.onrender.com/api/main/${selectedMainCategory}`
       );
       const mainCategory = response.data;
 
@@ -170,7 +170,7 @@ const GroupMenu = () => {
       setLoading(true);
 
       const response = await axios.delete(
-        `https://back-jj8x.onrender.com/api/menu/${selectedMainCategory}/removemenus`,
+        `https://pramod.onrender.com/api/menu/${selectedMainCategory}/removemenus`,
         {
           data: { menuIds: selectedMenus },
         }

@@ -17,7 +17,7 @@ const Waiter = () => {
   useEffect(() => {
     const fetchWaiters = async () => {
       try {
-        const response = await axios.get('https://back-jj8x.onrender.com/api/waiter');
+        const response = await axios.get('https://pramod.onrender.com/api/waiter');
         setWaiters(response.data);
       } catch (error) {
         console.error('Error fetching waiters:', error);
@@ -37,7 +37,7 @@ const Waiter = () => {
 
   const handleAddWaiter = async () => {
     try {
-      const response = await axios.post('https://back-jj8x.onrender.com/api/waiter', waiterData);
+      const response = await axios.post('https://pramod.onrender.com/api/waiter', waiterData);
       setWaiters([...waiters, response.data]);
       setWaiterData({
         waiterName: '',
@@ -51,7 +51,7 @@ const Waiter = () => {
 
   const handleEditWaiter = async (waiterId) => {
     try {
-      const response = await axios.put(`https://back-jj8x.onrender.com/api/waiter/${waiterId}`, waiterData);
+      const response = await axios.put(`https://pramod.onrender.com/api/waiter/${waiterId}`, waiterData);
       const updatedWaiters = waiters.map((waiter) =>
         waiter._id === waiterId ? response.data : waiter
       );
@@ -69,7 +69,7 @@ const Waiter = () => {
 
   const handleDeleteWaiter = async (waiterId) => {
     try {
-      await axios.delete(`https://back-jj8x.onrender.com/api/waiter/${waiterId}`);
+      await axios.delete(`https://pramod.onrender.com/api/waiter/${waiterId}`);
       const updatedWaiters = waiters.filter((waiter) => waiter._id !== waiterId);
       setWaiters(updatedWaiters);
     } catch (error) {

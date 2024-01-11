@@ -12,7 +12,7 @@ const GSTForm = ({ onSubmit }) => {
         const fetchHotelAndGSTPercentage = async () => {
             try {
                 // Fetch a single hotel (assuming you only need one hotel)
-                const hotelsResponse = await axios.get('https://back-jj8x.onrender.com/api/hotel/get-all');
+                const hotelsResponse = await axios.get('https://pramod.onrender.com/api/hotel/get-all');
 
                 // Set the default hotel
                 if (hotelsResponse.data.length > 0) {
@@ -31,7 +31,7 @@ const GSTForm = ({ onSubmit }) => {
             try {
                 // Fetch GST Percentage for the selected hotel
                 if (hotel._id) {
-                    const gstResponse = await axios.get(`https://back-jj8x.onrender.com/api/hotel/get/${hotel._id}`);
+                    const gstResponse = await axios.get(`https://pramod.onrender.com/api/hotel/get/${hotel._id}`);
                     setGSTPercentage(gstResponse.data.gstPercentage.toString()); // Assuming gstPercentage is a number
                 }
             } catch (error) {
@@ -46,7 +46,7 @@ const GSTForm = ({ onSubmit }) => {
         e.preventDefault();
         if (hotel._id && gstPercentage !== '') {
             try {
-                await axios.patch(`https://back-jj8x.onrender.com/api/hotel/gst/${hotel._id}`, {
+                await axios.patch(`https://pramod.onrender.com/api/hotel/gst/${hotel._id}`, {
                     gstPercentage: parseFloat(gstPercentage),
                 });
                 console.log('GST Percentage added successfully');

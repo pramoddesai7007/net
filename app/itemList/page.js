@@ -18,7 +18,7 @@ const ItemListPage = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('https://back-jj8x.onrender.com/api/item/items');
+      const response = await axios.get('https://pramod.onrender.com/api/item/items');
       setItems(response.data);
     } catch (error) {
       console.error('Error fetching items:', error.message);
@@ -34,7 +34,7 @@ const ItemListPage = () => {
   const handleDeleteClick = async (itemId) => {
     try {
       // Make a DELETE request to delete the item
-      await axios.delete(`https://back-jj8x.onrender.com/api/item/items/${itemId}`);
+      await axios.delete(`https://pramod.onrender.com/api/item/items/${itemId}`);
       
       // Refresh the item list
       fetchItems();
@@ -48,7 +48,7 @@ const ItemListPage = () => {
   const handleEditSubmit = async (formData) => {
     try {
       // Make an API request using Axios to update the item data
-      await axios.put(`https://back-jj8x.onrender.com/api/item/items/${itemToEdit._id}`, formData);
+      await axios.put(`https://pramod.onrender.com/api/item/items/${itemToEdit._id}`, formData);
   
       // Update the local state with edited item data after the API call is successful
       setItems((prevItems) =>

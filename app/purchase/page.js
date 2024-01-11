@@ -34,7 +34,7 @@ const PurchaseForm = () => {
         // Fetch stock quantity for the selected product
         const fetchStockQty = async () => {
             try {
-                const response = await axios.get(`https://back-jj8x.onrender.com/api/purchase/purchase/stockQty?itemName=${formData.itemName}`);
+                const response = await axios.get(`https://pramod.onrender.com/api/purchase/purchase/stockQty?itemName=${formData.itemName}`);
                 console.log("stock Quantity",response.data.stockQty)
                 setStockQty(response.data.stockQty);
             } catch (error) {
@@ -50,7 +50,7 @@ const PurchaseForm = () => {
     useEffect(() => {
         const fetchVendors = async () => {
             try {
-                const response = await axios.get('https://back-jj8x.onrender.com/api/supplier/suppliers');
+                const response = await axios.get('https://pramod.onrender.com/api/supplier/suppliers');
                 setVendors(response.data);
             } catch (error) {
                 console.error('Error fetching vendors:', error);
@@ -62,7 +62,7 @@ const PurchaseForm = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('https://back-jj8x.onrender.com/api/item/items');
+                const response = await axios.get('https://pramod.onrender.com/api/item/items');
                 setProducts(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -76,7 +76,7 @@ const PurchaseForm = () => {
     useEffect(() => {
         const fetchGSTList = async () => {
             try {
-                const response = await axios.get('https://back-jj8x.onrender.com/api/gst/list');
+                const response = await axios.get('https://pramod.onrender.com/api/gst/list');
                 setGsts(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -91,7 +91,7 @@ const PurchaseForm = () => {
     useEffect(() => {
         const fetchUnitList = async () => {
             try {
-                const response = await axios.get('https://back-jj8x.onrender.com/api/unit/units');
+                const response = await axios.get('https://pramod.onrender.com/api/unit/units');
                 setUnits(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -222,12 +222,12 @@ const PurchaseForm = () => {
             console.log(data);
     
             // Make a POST request to save the bill
-            const response = await axios.post('https://back-jj8x.onrender.com/api/purchase/purchase/savebill', data);
+            const response = await axios.post('https://pramod.onrender.com/api/purchase/purchase/savebill', data);
     
             // Handle the response as needed (e.g., show success message)
             console.log('Bill saved successfully:', response.data);
             
-            const updatedStockResponse = await axios.get(`https://back-jj8x.onrender.com/api/purchase/purchase/stockQty?itemName=${formData.itemName}`);
+            const updatedStockResponse = await axios.get(`https://pramod.onrender.com/api/purchase/purchase/stockQty?itemName=${formData.itemName}`);
             setStockQty(updatedStockResponse.data.stockQty);
             // Reset the form and item list after saving
             setFormData({

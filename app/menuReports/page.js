@@ -11,7 +11,7 @@ const MenuReport = () => {
     // Fetch menu names when the component mounts
     const fetchMenuNames = async () => {
       try {
-        const response = await fetch('https://back-jj8x.onrender.com/api/menu/menus/list');
+        const response = await fetch('https://pramod.onrender.com/api/menu/menus/list');
         const menuNames = await response.json();
         setMenuNames(menuNames);
       } catch (error) {
@@ -24,7 +24,7 @@ const MenuReport = () => {
 
   const getOrderReport = async () => {
     try {
-      const response = await fetch(`https://back-jj8x.onrender.com/api/order/orders/list/menuwise?date=${date}&menuName=${menuName}`);
+      const response = await fetch(`https://pramod.onrender.com/api/order/orders/list/menuwise?date=${date}&menuName=${menuName}`);
       const result = await response.json();
       setResult(result);
     } catch (error) {

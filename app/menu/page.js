@@ -83,7 +83,7 @@
 //             formData.append("uniqueId", editedMenuData.uniqueId);
 
 //             const response = await axios.patch(
-//                 `https://back-jj8x.onrender.com/api/menu/menus/${menuToEdit._id}`,
+//                 `https://pramod.onrender.com/api/menu/menus/${menuToEdit._id}`,
 //                 formData
 //             );
 
@@ -299,7 +299,7 @@
 //         try {
 //             // Proceed with the delete operation
 //             const response = await axios.delete(
-//                 `https://back-jj8x.onrender.com/api/menu/menus/${menuToDelete._id}`
+//                 `https://pramod.onrender.com/api/menu/menus/${menuToDelete._id}`
 //             );
 //             console.log("Menu deleted successfully:", response.data);
 
@@ -361,7 +361,7 @@
 //     //         // formData.append("mainCategoryId", newMenuData.mainCategoryId);
 
 //     //         const response = await axios.post(
-//     //             `https://back-jj8x.onrender.com/api/menu/menu`,
+//     //             `https://pramod.onrender.com/api/menu/menu`,
 //     //             formData
 //     //         );
 
@@ -390,7 +390,7 @@
 //             formData.append("uniqueId", newMenuData.uniqueId);
 
 //             const response = await axios.post(
-//                 `https://back-jj8x.onrender.com/api/menu/menu`,
+//                 `https://pramod.onrender.com/api/menu/menu`,
 //                 formData
 //             );
 
@@ -434,7 +434,7 @@
 //         const fetchMenus = async () => {
 //             try {
 //                 const response = await axios.get(
-//                     "https://back-jj8x.onrender.com/api/menu/menus/list"
+//                     "https://pramod.onrender.com/api/menu/menus/list"
 //                 );
 //                 setMenus(response.data);
 //             } catch (error) {
@@ -457,7 +457,7 @@
 
 //             // Make a POST request to the backend endpoint
 //             const response = await axios.post(
-//                 "https://back-jj8x.onrender.com/api/menu/upload-excel",
+//                 "https://pramod.onrender.com/api/menu/upload-excel",
 //                 formData
 //             );
 
@@ -828,7 +828,7 @@
 //                                 <span className="font-semibold">Image:</span>{" "}
 //                                 {menuToView?.imageUrl ? (
 //                                     <img
-//                                         src={`https://back-jj8x.onrender.com/${menuToView.imageUrl}`}
+//                                         src={`https://pramod.onrender.com/${menuToView.imageUrl}`}
 //                                         alt="Menu"
 //                                         className="max-w-full max-h-32 mt-2 rounded-md shadow-md"
 //                                     />
@@ -929,7 +929,7 @@ const EditModal = ({ isOpen, onCancel, onEdit, menuToEdit }) => {
             // formData.append("mainCategoryId", editedMenuData.mainCategoryId);
     
             const response = await axios.patch(
-                `https://back-jj8x.onrender.com/api/menu/menus/${menuToEdit._id}`,
+                `https://pramod.onrender.com/api/menu/menus/${menuToEdit._id}`,
                 formData
             );
     
@@ -1153,7 +1153,7 @@ const MenuList = () => {
         try {
             // Proceed with the delete operation
             const response = await axios.delete(
-                `https://back-jj8x.onrender.com/api/menu/menus/${menuToDelete._id}`
+                `https://pramod.onrender.com/api/menu/menus/${menuToDelete._id}`
             );
             console.log("Menu deleted successfully:", response.data);
 
@@ -1215,7 +1215,7 @@ const MenuList = () => {
     //         // formData.append("mainCategoryId", newMenuData.mainCategoryId);
 
     //         const response = await axios.post(
-    //             `https://back-jj8x.onrender.com/api/menu/menu`,
+    //             `https://pramod.onrender.com/api/menu/menu`,
     //             formData
     //         );
 
@@ -1244,7 +1244,7 @@ const MenuList = () => {
             formData.append("uniqueId", newMenuData.uniqueId);
 
             const response = await axios.post(
-                `https://back-jj8x.onrender.com/api/menu/menu`,
+                `https://pramod.onrender.com/api/menu/menu`,
                 formData
             );
 
@@ -1288,7 +1288,7 @@ const MenuList = () => {
         const fetchMenus = async () => {
             try {
                 const response = await axios.get(
-                    "https://back-jj8x.onrender.com/api/menu/menus/list"
+                    "https://pramod.onrender.com/api/menu/menus/list"
                 );
                 setMenus(response.data);
             } catch (error) {
@@ -1311,7 +1311,7 @@ const MenuList = () => {
 
             // Make a POST request to the backend endpoint
             const response = await axios.post(
-                "https://back-jj8x.onrender.com/api/menu/upload-excel",
+                "https://pramod.onrender.com/api/menu/upload-excel",
                 formData
             );
 
@@ -1682,7 +1682,7 @@ const MenuList = () => {
                                 <span className="font-semibold">Image:</span>{" "}
                                 {menuToView?.imageUrl ? (
                                     <img
-                                        src={`https://back-jj8x.onrender.com/${menuToView.imageUrl}`}
+                                        src={`https://pramod.onrender.com/${menuToView.imageUrl}`}
                                         alt="Menu"
                                         className="max-w-full max-h-32 mt-2 rounded-md shadow-md"
                                     />

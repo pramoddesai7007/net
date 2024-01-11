@@ -15,7 +15,7 @@ const SupplierList = () => {
     useEffect(() => {
         const fetchSuppliers = async () => {
             try {
-                const response = await axios.get('https://back-jj8x.onrender.com/api/supplier/suppliers');
+                const response = await axios.get('https://pramod.onrender.com/api/supplier/suppliers');
                 setSuppliers(response.data);
             } catch (error) {
                 console.error('Error fetching suppliers:', error);
@@ -40,7 +40,7 @@ const SupplierList = () => {
 
         try {
             const response = await axios.patch(
-                `https://back-jj8x.onrender.com/api/supplier/suppliers/${editedSupplier._id}`,
+                `https://pramod.onrender.com/api/supplier/suppliers/${editedSupplier._id}`,
                 editedSupplier
             );
 
@@ -64,7 +64,7 @@ const SupplierList = () => {
     const handleDeleteConfirmed = async () => {
         try {
             // Assuming the API returns the deleted supplier
-            await axios.delete(`https://back-jj8x.onrender.com/api/supplier/suppliers/${editedSupplier._id}`);
+            await axios.delete(`https://pramod.onrender.com/api/supplier/suppliers/${editedSupplier._id}`);
 
             // Update the state by removing the deleted supplier
             setSuppliers((prevSuppliers) =>

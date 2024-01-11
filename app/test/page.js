@@ -31,12 +31,12 @@ const Billing = ({ tableId, acPercentage }) => {
 
   const fetchLast10Orders = async () => {
     try {
-      const ordersResponse = await axios.get('https://back-jj8x.onrender.com/api/order/last-10-orders');
+      const ordersResponse = await axios.get('https://pramod.onrender.com/api/order/last-10-orders');
       const orders = ordersResponse.data;
   
       // Fetch table names for each order
       const tableNamesPromises = orders.map(async (order) => {
-        const tableResponse = await axios.get(`https://back-jj8x.onrender.com/api/table/tables/${order.tableId}`);
+        const tableResponse = await axios.get(`https://pramod.onrender.com/api/table/tables/${order.tableId}`);
         const tableName = tableResponse.data?.tableName || '';
         return { ...order, tableName };
       });
@@ -133,7 +133,7 @@ const Billing = ({ tableId, acPercentage }) => {
       };
 
       // Check if there's an existing bill for the current table
-      const existingBillResponse = await axios.get(`https://back-jj8x.onrender.com/api/order/order/${tableId}`);
+      const existingBillResponse = await axios.get(`https://pramod.onrender.com/api/order/order/${tableId}`);
       const existingBill = existingBillResponse.data;
 
       let existingItems = [];
@@ -146,11 +146,11 @@ const Billing = ({ tableId, acPercentage }) => {
         existingItems = existingBill[0].items;
 
         // Update the existing order by orderId
-        const updateResponse = await axios.patch(`https://back-jj8x.onrender.com/api/order/update-order-by-id/${orderIdToUpdate}`, orderData);
+        const updateResponse = await axios.patch(`https://pramod.onrender.com/api/order/update-order-by-id/${orderIdToUpdate}`, orderData);
         console.log('Update Response:', updateResponse.data);
       } else {
         // If no existing bill is found, create a new one
-        const createResponse = await axios.post(`https://back-jj8x.onrender.com/api/order/order/${tableId}`, orderData);
+        const createResponse = await axios.post(`https://pramod.onrender.com/api/order/order/${tableId}`, orderData);
         console.log('Create Response:', createResponse.data);
       }
 
@@ -256,7 +256,7 @@ const Billing = ({ tableId, acPercentage }) => {
   const handlePrintBill = async () => {
     try {
       // Check if there's an existing bill for the current table
-      const existingBillResponse = await axios.get(`https://back-jj8x.onrender.com/api/order/order/${tableId}`);
+      const existingBillResponse = await axios.get(`https://pramod.onrender.com/api/order/order/${tableId}`);
       const existingBill = existingBillResponse.data;
 
       // Find the index of the first temporary order (if any)
@@ -281,13 +281,13 @@ const Billing = ({ tableId, acPercentage }) => {
       if (temporaryOrderIndex !== -1) {
         // If an existing temporary order is found, update it
         const orderIdToUpdate = existingBill[temporaryOrderIndex]._id;
-        await axios.patch(`https://back-jj8x.onrender.com/api/order/update-order-by-id/${orderIdToUpdate}`, {
+        await axios.patch(`https://pramod.onrender.com/api/order/update-order-by-id/${orderIdToUpdate}`, {
           ...orderData,
           isTemporary: false, // Ensure isTemporary is set to false in the update request
         });
       } else {
         // If no existing temporary order is found, create a new one
-        await axios.post(`https://back-jj8x.onrender.com/api/order/order/${tableId}`, orderData);
+        await axios.post(`https://pramod.onrender.com/api/order/order/${tableId}`, orderData);
       }
 
       // Remove the local storage item for the specific table
@@ -558,7 +558,7 @@ const Billing = ({ tableId, acPercentage }) => {
 
       <div class="qr-code">
         ${hotelInfo && hotelInfo.qrCode && (
-          `<img src="https://back-jj8x.onrender.com/${hotelInfo.qrCode}" alt="QR Code" />`
+          `<img src="https://pramod.onrender.com/${hotelInfo.qrCode}" alt="QR Code" />`
         )}
       </div>
       <div class="thank-you">Thank You Visit Again !!!</div>
@@ -649,7 +649,7 @@ const Billing = ({ tableId, acPercentage }) => {
       searchInputRef.current.focus();
     }
     // Fetch categories
-    axios.get('https://back-jj8x.onrender.com/api/main')
+    axios.get('https://pramod.onrender.com/api/main')
       .then(response => {
         setCategories(response.data);
       })
@@ -658,7 +658,7 @@ const Billing = ({ tableId, acPercentage }) => {
       });
 
     // Fetch products
-    axios.get('https://back-jj8x.onrender.com/api/menu/menus/list')
+    axios.get('https://pramod.onrender.com/api/menu/menus/list')
       .then(response => {
         console.log(response.data);
         const menusArray = response.data; // Ensure menus is an array
@@ -669,7 +669,7 @@ const Billing = ({ tableId, acPercentage }) => {
       });
 
     if (tableId) {
-      axios.get(`https://back-jj8x.onrender.com/api/table/tables/${tableId}`)
+      axios.get(`https://pramod.onrender.com/api/table/tables/${tableId}`)
         .then(response => {
           setTableInfo(response.data);
         })
@@ -726,7 +726,7 @@ const Billing = ({ tableId, acPercentage }) => {
   useEffect(() => {
     // Fetch menus based on the selected category
     if (selectedCategory) {
-      axios.get(`https://back-jj8x.onrender.com/api/menu/${selectedCategory._id}`)
+      axios.get(`https://pramod.onrender.com/api/menu/${selectedCategory._id}`)
         .then(response => {
           console.log(response.data);
           const menusArray = response.data || []; // Ensure menus is an array
@@ -744,7 +744,7 @@ const Billing = ({ tableId, acPercentage }) => {
 
     // If the category is null (All items), fetch all menus
     if (category === null) {
-      axios.get('https://back-jj8x.onrender.com/api/menu/menus/list')
+      axios.get('https://pramod.onrender.com/api/menu/menus/list')
         .then(response => {
           setMenus(response.data);
         })
@@ -753,7 +753,7 @@ const Billing = ({ tableId, acPercentage }) => {
         });
     } else {
       // Fetch menus based on the selected category
-      axios.get(`https://back-jj8x.onrender.com/api/menu/menulist/${category._id}`)
+      axios.get(`https://pramod.onrender.com/api/menu/menulist/${category._id}`)
         .then(response => {
           setMenus(response.data);
         })
@@ -816,7 +816,7 @@ const Billing = ({ tableId, acPercentage }) => {
 
     const fetchHotelInfo = async () => {
       try {
-        const response = await axios.get(`https://back-jj8x.onrender.com/api/hotel/get/${hotelId}`);
+        const response = await axios.get(`https://pramod.onrender.com/api/hotel/get/${hotelId}`);
         setHotelInfo(response.data);
         setGSTPercentage(response.data.gstPercentage || 0);
 
@@ -968,7 +968,7 @@ const Billing = ({ tableId, acPercentage }) => {
                   <div className="flex flex-row items-center w-2/5">
                     <div className="flex items-center h-full">
                       <img
-                        // src={`https://back-jj8x.onrender.com/${orderItem.imageUrl}`}
+                        // src={`https://pramod.onrender.com/${orderItem.imageUrl}`}
                         src={`/tray.png`}
                         className="w-10 h-10 object-cover rounded-md"
                         alt=""

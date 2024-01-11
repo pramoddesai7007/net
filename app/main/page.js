@@ -33,7 +33,7 @@
 
 // //     const handleViewMainCategory = async (mainCategory) => {
 // //         try {
-// //             const response = await axios.get(`https://back-jj8x.onrender.com/api/main/${mainCategory._id}`);
+// //             const response = await axios.get(`https://pramod.onrender.com/api/main/${mainCategory._id}`);
 // //             const mainCategoryData = response.data;
 // //             setMainCategoryToView(mainCategoryData);
 // //             setIsViewMainCategoryModalOpen(true);
@@ -53,7 +53,7 @@
 // //                 formData.append('mainImage', newMenuImage);
 // //             }
 
-// //             const response = await axios.post('https://back-jj8x.onrender.com/api/main', formData, {
+// //             const response = await axios.post('https://pramod.onrender.com/api/main', formData, {
 // //                 headers: {
 // //                     'Content-Type': 'multipart/form-data',
 // //                 },
@@ -79,7 +79,7 @@
 
 // //     const handleDelete = async (menu) => {
 // //         try {
-// //             const response = await axios.delete(`https://back-jj8x.onrender.com/api/main/${menu._id}`);
+// //             const response = await axios.delete(`https://pramod.onrender.com/api/main/${menu._id}`);
 // //             const deletedMenu = response.data.deletedMainCategory;
 
 // //             setMenus((prevMenus) => prevMenus.filter((m) => m._id !== deletedMenu._id));
@@ -114,7 +114,7 @@
 // //                 formData.append('mainImage', editedMenuImage);
 // //             }
 
-// //             const response = await axios.patch(`https://back-jj8x.onrender.com/api/main/${editedMenu._id}`, formData, {
+// //             const response = await axios.patch(`https://pramod.onrender.com/api/main/${editedMenu._id}`, formData, {
 // //                 headers: {
 // //                     'Content-Type': 'multipart/form-data',
 // //                 },
@@ -136,7 +136,7 @@
 // //     useEffect(() => {
 // //         const fetchMenus = async () => {
 // //             try {
-// //                 const response = await axios.get('https://back-jj8x.onrender.com/api/main');
+// //                 const response = await axios.get('https://pramod.onrender.com/api/main');
 // //                 setMenus(response.data);
 
 // //                 // Update searchResults based on the search input
@@ -477,7 +477,7 @@
 // //                                     Image:
 // //                                     {mainCategoryToView?.mainImage ? (
 // //                                         <img
-// //                                             src={`https://back-jj8x.onrender.com/${mainCategoryToView.mainImage}`}
+// //                                             src={`https://pramod.onrender.com/${mainCategoryToView.mainImage}`}
 // //                                             alt="Main Category"
 // //                                             className="max-w-full max-h-32 mt-2"
 // //                                         />
@@ -552,7 +552,7 @@
 //   const handleViewMainCategory = async (mainCategory) => {
 //     try {
 //       const response = await axios.get(
-//         `https://back-jj8x.onrender.com/api/main/${mainCategory._id}`
+//         `https://pramod.onrender.com/api/main/${mainCategory._id}`
 //       );
 //       const mainCategoryData = response.data;
 //       setMainCategoryToView(mainCategoryData);
@@ -574,7 +574,7 @@
 //       }
 
 //       const response = await axios.post(
-//         "https://back-jj8x.onrender.com/api/main",
+//         "https://pramod.onrender.com/api/main",
 //         formData,
 //         {
 //           headers: {
@@ -604,7 +604,7 @@
 //   const handleDelete = async (menu) => {
 //     try {
 //       const response = await axios.delete(
-//         `https://back-jj8x.onrender.com/api/main/${menu._id}`
+//         `https://pramod.onrender.com/api/main/${menu._id}`
 //       );
 //       const deletedMenu = response.data.deletedMainCategory;
 
@@ -641,7 +641,7 @@
 //       }
 
 //       const response = await axios.patch(
-//         `https://back-jj8x.onrender.com/api/main/${editedMenu._id}`,
+//         `https://pramod.onrender.com/api/main/${editedMenu._id}`,
 //         formData,
 //         {
 //           headers: {
@@ -665,7 +665,7 @@
 //   };
 
 //   const handlePicturePreview = (mainImage) => {
-//     const completeImageUrl = `https://back-jj8x.onrender.com/${mainImage}`;
+//     const completeImageUrl = `https://pramod.onrender.com/${mainImage}`;
 //     setPreviewImageUrl(completeImageUrl);
 //     setIsPreviewModalOpen(true);
 //   };
@@ -673,7 +673,7 @@
 //   useEffect(() => {
 //     const fetchMenus = async () => {
 //       try {
-//         const response = await axios.get("https://back-jj8x.onrender.com/api/main");
+//         const response = await axios.get("https://pramod.onrender.com/api/main");
 //         setMenus(response.data);
 
 //         // Update searchResults based on the search input
@@ -1100,7 +1100,7 @@
 //                   Image:
 //                   {mainCategoryToView?.mainImage ? (
 //                     <img
-//                       src={`https://back-jj8x.onrender.com/${mainCategoryToView.mainImage}`}
+//                       src={`https://pramod.onrender.com/${mainCategoryToView.mainImage}`}
 //                       alt="Main Category"
 //                       className="max-w-full max-h-32 mt-2"
 //                     />
@@ -1176,7 +1176,7 @@ const MainMenuList = () => {
     const handleViewMainCategory = async (mainCategory) => {
       try {
         const response = await axios.get(
-          `https://back-jj8x.onrender.com/api/main/${mainCategory._id}`
+          `https://pramod.onrender.com/api/main/${mainCategory._id}`
         );
         const mainCategoryData = response.data;
         console.log("Main Category Data:", mainCategoryData);
@@ -1202,7 +1202,7 @@ const MainMenuList = () => {
         }
     
         const response = await axios.post(
-          "https://back-jj8x.onrender.com/api/main",
+          "https://pramod.onrender.com/api/main",
           formData,
           {
             headers: {
@@ -1246,7 +1246,7 @@ const MainMenuList = () => {
         }
     
         const response = await axios.delete(
-          `https://back-jj8x.onrender.com/api/main/${menu._id}`
+          `https://pramod.onrender.com/api/main/${menu._id}`
         );
     
         // Check if response.data and deletedMainCategory are not null or undefined
@@ -1292,7 +1292,7 @@ const MainMenuList = () => {
       }
   
       const response = await axios.patch(
-        `https://back-jj8x.onrender.com/api/main/${editedMenu._id}`,
+        `https://pramod.onrender.com/api/main/${editedMenu._id}`,
         formData,
         {
           headers: {
@@ -1319,7 +1319,7 @@ const MainMenuList = () => {
       setIsEditModalOpen(false);
   
       // Fetch the updated list of menus
-      const updatedMenusResponse = await axios.get("https://back-jj8x.onrender.com/api/main");
+      const updatedMenusResponse = await axios.get("https://pramod.onrender.com/api/main");
       setMenus(updatedMenusResponse.data);
     } catch (error) {
       console.error("Error updating main category:", error);
@@ -1328,7 +1328,7 @@ const MainMenuList = () => {
   
 
   const handlePicturePreview = (mainImage) => {
-    const completeImageUrl = `https://back-jj8x.onrender.com/${mainImage}`;
+    const completeImageUrl = `https://pramod.onrender.com/${mainImage}`;
     setPreviewImageUrl(completeImageUrl);
     setIsPreviewModalOpen(true);
   };
@@ -1336,7 +1336,7 @@ const MainMenuList = () => {
   useEffect(() => {
     const fetchMenus = async () => {
       try {
-        const response = await axios.get("https://back-jj8x.onrender.com/api/main");
+        const response = await axios.get("https://pramod.onrender.com/api/main");
         setMenus(response.data);
 
         // Update searchResults based on the search input
@@ -1762,7 +1762,7 @@ const MainMenuList = () => {
                   Image:
                   {mainCategoryToView?.mainImage ? (
                     <img
-                      src={`https://back-jj8x.onrender.com/${mainCategoryToView.mainImage}`}
+                      src={`https://pramod.onrender.com/${mainCategoryToView.mainImage}`}
                       alt="Main Category"
                       className="max-w-full max-h-32 mt-2"
                     />

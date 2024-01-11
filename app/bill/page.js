@@ -22,12 +22,12 @@ const Bill = () => {
     const fetchData = async () => {
       try {
         const sectionsResponse = await axios.get(
-          "https://back-jj8x.onrender.com/api/section"
+          "https://pramod.onrender.com/api/section"
         );
         setSections(sectionsResponse.data);
 
         const tablesResponse = await axios.get(
-          "https://back-jj8x.onrender.com/api/table/tables"
+          "https://pramod.onrender.com/api/table/tables"
         );
         setTables(tablesResponse.data);
 
@@ -42,7 +42,7 @@ const Bill = () => {
         const billsData = await Promise.all(
           tablesResponse.data.map(async (table) => {
             const billsResponse = await axios.get(
-              `https://back-jj8x.onrender.com/api/order/order/${table._id}`
+              `https://pramod.onrender.com/api/order/order/${table._id}`
             );
             const temporaryBills = billsResponse.data.filter(
               (bill) => bill.isTemporary
@@ -184,12 +184,12 @@ export default Bill;
 //     const fetchData = async () => {
 //       try {
 //         const sectionsResponse = await axios.get(
-//           "https://back-jj8x.onrender.com/api/section"
+//           "https://pramod.onrender.com/api/section"
 //         );
 //         setSections(sectionsResponse.data);
 
 //         const tablesResponse = await axios.get(
-//           "https://back-jj8x.onrender.com/api/table/tables"
+//           "https://pramod.onrender.com/api/table/tables"
 //         );
 //         setTables(tablesResponse.data);
 
@@ -204,7 +204,7 @@ export default Bill;
 //         const billsData = await Promise.all(
 //           tablesResponse.data.map(async (table) => {
 //             const billsResponse = await axios.get(
-//               `https://back-jj8x.onrender.com/api/order/order/${table._id}`
+//               `https://pramod.onrender.com/api/order/order/${table._id}`
 //             );
 //             const temporaryBills = billsResponse.data.filter(
 //               (bill) => bill.isTemporary

@@ -15,10 +15,10 @@ const PaymentList = () => {
         const fetchPayments = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('https://back-jj8x.onrender.com/api/payment/paymentsList');
+                const response = await axios.get('https://pramod.onrender.com/api/payment/paymentsList');
                 const paymentsWithTableNames = await Promise.all(
                     response.data.map(async (payment) => {
-                        const tableResponse = await axios.get(`https://back-jj8x.onrender.com/api/table/tables/${payment.tableId}`);
+                        const tableResponse = await axios.get(`https://pramod.onrender.com/api/table/tables/${payment.tableId}`);
                         return {
                             ...payment,
                             tableName: tableResponse.data.tableName || 'Unknown Table',

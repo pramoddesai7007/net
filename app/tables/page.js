@@ -69,7 +69,7 @@ const Tables = () => {
 
     const handleView = async (tableId) => {
         try {
-            const response = await axios.get(`https://back-jj8x.onrender.com/api/table/tables/${tableId}`);
+            const response = await axios.get(`https://pramod.onrender.com/api/table/tables/${tableId}`);
             const tableData = response.data;
 
             // Set the table information in the state
@@ -102,7 +102,7 @@ const Tables = () => {
             formData.append("sectionId", editTable.section._id); // Add sectionId to FormData
 
             const response = await axios.patch(
-                `https://back-jj8x.onrender.com/api/table/tables/${editTable._id}`,
+                `https://pramod.onrender.com/api/table/tables/${editTable._id}`,
                 formData,
                 {
                     headers: {
@@ -130,7 +130,7 @@ const Tables = () => {
     useEffect(() => {
         const fetchTables = async () => {
             try {
-                const tablesResponse = await axios.get('https://back-jj8x.onrender.com/api/table/tables');
+                const tablesResponse = await axios.get('https://pramod.onrender.com/api/table/tables');
                 setTables(tablesResponse.data);
             } catch (error) {
                 console.error('Error fetching tables:', error);
@@ -139,7 +139,7 @@ const Tables = () => {
 
         const fetchSections = async () => {
             try {
-                const sectionsResponse = await axios.get('https://back-jj8x.onrender.com/api/section');
+                const sectionsResponse = await axios.get('https://pramod.onrender.com/api/section');
                 setSections(sectionsResponse.data);
             } catch (error) {
                 console.error('Error fetching sections:', error);
@@ -164,7 +164,7 @@ const Tables = () => {
             formData.append("tableName", newTable.name);
 
             const response = await axios.post(
-                `https://back-jj8x.onrender.com/api/table/${sectionId}/tables`,
+                `https://pramod.onrender.com/api/table/${sectionId}/tables`,
                 formData,
                 {
                     headers: {
@@ -196,7 +196,7 @@ const Tables = () => {
     useEffect(() => {
         const fetchtables = async () => {
             try {
-                const response = await axios.get('https://back-jj8x.onrender.com/api/table/tables');
+                const response = await axios.get('https://pramod.onrender.com/api/table/tables');
                 console.log(response.data)
                 setTables(response.data);
             } catch (error) {
@@ -259,7 +259,7 @@ const Tables = () => {
         try {
             // Proceed with the delete operation
             const response = await axios.delete(
-                `https://back-jj8x.onrender.com/api/table/tables/${tableToDelete._id}`
+                `https://pramod.onrender.com/api/table/tables/${tableToDelete._id}`
             );
             console.log("Menu deleted successfully:", response.data);
 

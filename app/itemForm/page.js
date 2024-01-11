@@ -34,10 +34,10 @@ const ItemForm = ({ onSubmit, itemToEdit }) => {
     try {
       if (itemToEdit) {
         // If editing, make a PUT request
-        await axios.put(`https://back-jj8x.onrender.com/api/item/items/${itemToEdit._id}`, formData);
+        await axios.put(`https://pramod.onrender.com/api/item/items/${itemToEdit._id}`, formData);
       } else {
         // If creating, make a POST request
-        await axios.post('https://back-jj8x.onrender.com/api/item/items', formData);
+        await axios.post('https://pramod.onrender.com/api/item/items', formData);
       }
 
       // Optionally, reset the form after submission

@@ -12,7 +12,7 @@
 //   const router = useRouter()
 //   const handleLogin = async () => {
 //     try {
-//       const response = await axios.post('https://back-jj8x.onrender.com/api/auth/login', { username, password });
+//       const response = await axios.post('https://pramod.onrender.com/api/auth/login', { username, password });
 //       // Handle successful login, save token to localStorage, redirect, etc.
 //       console.log(response.data);
 //       const token = response.data.token;
@@ -94,7 +94,7 @@ export default function Login() {
   const router = useRouter()
   const handleLogin = async() => {
     try {
-     const response = await axios.post('https://back-jj8x.onrender.com/api/auth/login', { username, password });
+     const response = await axios.post('https://pramod.onrender.com/api/auth/login', { username, password });
 //      Handle successful login, save token to localStorage, redirect, etc.
       console.log(response.data);
       const token = response.data.token;
@@ -123,7 +123,7 @@ export default function Login() {
 //       }
 //     }
 //     var data = { username, password };
-//     xhr.open("POST",'https://back-jj8x.onrender.com/api/auth/login');
+//     xhr.open("POST",'https://pramod.onrender.com/api/auth/login');
 //     xhr.setRequestHeader("Content-Type", "application/json");
     
 //     xhr.send(JSON.stringify(data));

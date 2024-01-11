@@ -35,14 +35,14 @@ const EditOrderPage = ({ params }) => {
         const fetchOrderData = async () => {
             try {
                 if (orderId) {
-                    const orderResponse = await axios.get(`https://back-jj8x.onrender.com/api/order/get/order/${orderId}`);
+                    const orderResponse = await axios.get(`https://pramod.onrender.com/api/order/get/order/${orderId}`);
                     const orderData = orderResponse.data;
 
                     // Fetch the tableId from the order data
                     const tableId = orderData.tableId;
 
                     // Fetch the section information based on the tableId
-                    const sectionResponse = await axios.get(`https://back-jj8x.onrender.com/api/section/sectionlist/${tableId}`);
+                    const sectionResponse = await axios.get(`https://pramod.onrender.com/api/section/sectionlist/${tableId}`);
                     const sectionInfo = sectionResponse.data;
 
                     // Set the AC percentage based on the section information
@@ -129,7 +129,7 @@ const EditOrderPage = ({ params }) => {
         try {
             // Check if there's an existing bill for the current table
             const tableId = '657beba1022c7863b2836188'
-            const existingBillResponse = await axios.get(`https://back-jj8x.onrender.com/api/order/order/${tableId}`);
+            const existingBillResponse = await axios.get(`https://pramod.onrender.com/api/order/order/${tableId}`);
             const existingBill = existingBillResponse.data;
 
             // Find the index of the first temporary order (if any)
@@ -154,13 +154,13 @@ const EditOrderPage = ({ params }) => {
             if (temporaryOrderIndex !== -1) {
                 // If an existing temporary order is found, update it
                 const orderIdToUpdate = existingBill[temporaryOrderIndex]._id;
-                await axios.patch(`https://back-jj8x.onrender.com/api/order/update-order-by-id/${orderIdToUpdate}`, {
+                await axios.patch(`https://pramod.onrender.com/api/order/update-order-by-id/${orderIdToUpdate}`, {
                     ...orderData,
                     isTemporary: false, // Ensure isTemporary is set to false in the update request
                 });
             } else {
                 // If no existing temporary order is found, create a new one
-                await axios.post(`https://back-jj8x.onrender.com/api/order/order/${tableId}`, orderData);
+                await axios.post(`https://pramod.onrender.com/api/order/order/${tableId}`, orderData);
             }
 
             // Remove the local storage item for the specific table
@@ -192,7 +192,7 @@ const EditOrderPage = ({ params }) => {
 
 
     useEffect(() => {
-        axios.get('https://back-jj8x.onrender.com/api/main')
+        axios.get('https://pramod.onrender.com/api/main')
             .then(response => {
                 console.log(response.data)
                 setCategories(response.data);
@@ -201,7 +201,7 @@ const EditOrderPage = ({ params }) => {
                 console.error('Error fetching categories:', error);
             });
 
-        axios.get('https://back-jj8x.onrender.com/api/menu/menus/list')
+        axios.get('https://pramod.onrender.com/api/menu/menus/list')
             .then(response => {
                 const menusArray = response.data;
                 setMenus(menusArray);
@@ -216,7 +216,7 @@ const EditOrderPage = ({ params }) => {
         setSelectedCategory(category);
 
         if (category === null) {
-            axios.get('https://back-jj8x.onrender.com/api/menu/menus/list')
+            axios.get('https://pramod.onrender.com/api/menu/menus/list')
                 .then(response => {
                     setMenus(response.data);
                 })
@@ -224,7 +224,7 @@ const EditOrderPage = ({ params }) => {
                     console.error('Error fetching menus:', error);
                 });
         } else {
-            axios.get(`https://back-jj8x.onrender.com/api/menu/menulist/${category._id}`)
+            axios.get(`https://pramod.onrender.com/api/menu/menulist/${category._id}`)
                 .then(response => {
                     setMenus(response.data);
                 })
@@ -280,7 +280,7 @@ const EditOrderPage = ({ params }) => {
 
         const fetchHotelInfo = async () => {
             try {
-                const response = await axios.get(`https://back-jj8x.onrender.com/api/hotel/get/${hotelId}`);
+                const response = await axios.get(`https://pramod.onrender.com/api/hotel/get/${hotelId}`);
                 setHotelInfo(response.data);
                 setGSTPercentage(response.data.gstPercentage || 0);
 
@@ -319,7 +319,7 @@ const EditOrderPage = ({ params }) => {
 
         const fetchHotelInfo = async () => {
             try {
-                const response = await axios.get(`https://back-jj8x.onrender.com/api/hotel/get/${hotelId}`);
+                const response = await axios.get(`https://pramod.onrender.com/api/hotel/get/${hotelId}`);
                 setHotelInfo(response.data);
             } catch (error) {
                 console.error('Error fetching hotel information:', error);
@@ -452,7 +452,7 @@ const EditOrderPage = ({ params }) => {
                                     <div className="flex flex-row items-center w-2/5">
                                         <div className="flex items-center h-full">
                                             <img
-                                                // src={`https://back-jj8x.onrender.com/${orderItem.imageUrl}`}
+                                                // src={`https://pramod.onrender.com/${orderItem.imageUrl}`}
                                                 src={`/tray.png`}
                                                 className="w-10 h-10 object-cover rounded-md"
                                                 alt=""

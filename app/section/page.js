@@ -26,7 +26,7 @@ const Section = () => {
   useEffect(() => {
     const fetchSections = async () => {
       try {
-        const response = await axios.get("https://back-jj8x.onrender.com/api/section");
+        const response = await axios.get("https://pramod.onrender.com/api/section");
         setSections(response.data);
         filterSections(response.data);
       } catch (error) {
@@ -57,7 +57,7 @@ const Section = () => {
     try {
       // Send the updated sections to the server
       await axios.patch(
-        `https://back-jj8x.onrender.com/api/section/${sectionToEdit._id}`,
+        `https://pramod.onrender.com/api/section/${sectionToEdit._id}`,
         {
           name: sectionToEdit.name,
           isDefault: sectionToEdit.isDefault,
@@ -78,7 +78,7 @@ const Section = () => {
       setIsEditModalOpen(false);
   
       // Refetch the sections to update the display
-      const response = await axios.get("https://back-jj8x.onrender.com/api/section");
+      const response = await axios.get("https://pramod.onrender.com/api/section");
       setSections(response.data);
       filterSections(response.data);
     } catch (error) {
@@ -97,14 +97,14 @@ const Section = () => {
     if (!sectionToDelete) return;
   
     try {
-      await axios.delete(`https://back-jj8x.onrender.com/api/section/${sectionToDelete._id}`);
+      await axios.delete(`https://pramod.onrender.com/api/section/${sectionToDelete._id}`);
       
       // Remove the deleted section from the state
       setSections((prevSections) => prevSections.filter((s) => s._id !== sectionToDelete._id));
       setSectionToDelete(null);
   
       // Refetch the sections to update the display
-      const sectionsResponse = await axios.get("https://back-jj8x.onrender.com/api/section");
+      const sectionsResponse = await axios.get("https://pramod.onrender.com/api/section");
       setSections(sectionsResponse.data);
       filterSections(sectionsResponse.data);
     } catch (error) {
@@ -121,7 +121,7 @@ const Section = () => {
       formData.append("name", newSection.name);
   
       const response = await axios.post(
-        "https://back-jj8x.onrender.com/api/section/create",
+        "https://pramod.onrender.com/api/section/create",
         formData,
         {
           headers: {
@@ -140,7 +140,7 @@ const Section = () => {
       setIsNewModalOpen(false);
   
       // Refetch the sections to update the display
-      const sectionsResponse = await axios.get("https://back-jj8x.onrender.com/api/section");
+      const sectionsResponse = await axios.get("https://pramod.onrender.com/api/section");
       setSections(sectionsResponse.data);
       filterSections(sectionsResponse.data);
     } catch (error) {
@@ -154,7 +154,7 @@ const Section = () => {
   useEffect(() => {
     const fetchsections = async () => {
       try {
-        const response = await axios.get('https://back-jj8x.onrender.com/api/section');
+        const response = await axios.get('https://pramod.onrender.com/api/section');
         setSections(response.data);
       } catch (error) {
         console.error('Error fetching sections:', error);

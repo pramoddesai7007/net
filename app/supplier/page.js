@@ -31,10 +31,10 @@ const SupplierForm = () => {
 
     try {
       // Make an API request using Axios to post the form data
-      await axios.post('https://back-jj8x.onrender.com/api/supplier/suppliers', formData);
+      await axios.post('https://pramod.onrender.com/api/supplier/suppliers', formData);
 
       // Fetch the updated list of suppliers
-      const response = await axios.get('https://back-jj8x.onrender.com/api/supplier/suppliers');
+      const response = await axios.get('https://pramod.onrender.com/api/supplier/suppliers');
       setSuppliers(response.data);
 
       // Reset the form after submission
@@ -62,7 +62,7 @@ const SupplierForm = () => {
   useEffect(() => {
     const fetchSuppliers = async () => {
       try {
-        const response = await axios.get('https://back-jj8x.onrender.com/api/supplier/suppliers');
+        const response = await axios.get('https://pramod.onrender.com/api/supplier/suppliers');
         setSuppliers(response.data);
       } catch (error) {
         console.error('Error fetching suppliers:', error);
@@ -87,7 +87,7 @@ const SupplierForm = () => {
 
     try {
       const response = await axios.patch(
-        `https://back-jj8x.onrender.com/api/supplier/suppliers/${editedSupplier._id}`,
+        `https://pramod.onrender.com/api/supplier/suppliers/${editedSupplier._id}`,
         editedSupplier
       );
 
@@ -111,7 +111,7 @@ const SupplierForm = () => {
   const handleDeleteConfirmed = async () => {
     try {
       // Assuming the API returns the deleted supplier
-      await axios.delete(`https://back-jj8x.onrender.com/api/supplier/suppliers/${editedSupplier._id}`);
+      await axios.delete(`https://pramod.onrender.com/api/supplier/suppliers/${editedSupplier._id}`);
 
       // Update the state by removing the deleted supplier
       setSuppliers((prevSuppliers) =>

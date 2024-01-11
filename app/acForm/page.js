@@ -12,7 +12,7 @@ const ACForm = ({ onSubmit }) => {
     useEffect(() => {
         const fetchSections = async () => {
             try {
-                const response = await axios.get('https://back-jj8x.onrender.com/api/section');
+                const response = await axios.get('https://pramod.onrender.com/api/section');
                 setSections(response.data);
                 if (response.data.length > 0) {
                     setSelectedSection(response.data[0]._id);
@@ -28,7 +28,7 @@ const ACForm = ({ onSubmit }) => {
     useEffect(() => {
         const fetchACPercentage = async () => {
             try {
-                const response = await axios.get(`https://back-jj8x.onrender.com/api/section/${selectedSection}`);
+                const response = await axios.get(`https://pramod.onrender.com/api/section/${selectedSection}`);
                 setACPercentage(response.data.acPercentage.toString()); // Assuming acPercentage is a number
             } catch (error) {
                 console.error('Error fetching AC Percentage:', error.message);
@@ -44,7 +44,7 @@ const ACForm = ({ onSubmit }) => {
         e.preventDefault();
         if (selectedSection && acPercentage !== '') {
             try {
-                await axios.patch(`https://back-jj8x.onrender.com/api/section/ac/${selectedSection}`, {
+                await axios.patch(`https://pramod.onrender.com/api/section/ac/${selectedSection}`, {
                     acPercentage: parseFloat(acPercentage),
                 });
                 console.log('AC Percentage added successfully');
